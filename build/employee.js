@@ -28,5 +28,5 @@ class Employee {
     }
 };
 
-// to be exported 
+// to be exported and extended through all other roles
 module.exports = Employee; 
