@@ -21,16 +21,45 @@ function addManager(){
             type: 'input',
             name: 'name',
             message: 'Who is the manager of this team?', 
+            validate: userInput => {
+                if (userInput) {
+                    return true;
+                } else {
+                    console.log ("Please enter the manager's name!");
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
             name: 'id',
             message: "Please enter the manager's ID.",
+            validate: userInput => {
+
+                // using isNaN to validate if the value is a number 
+                if  (isNaN(userInput)) {
+                    console.log ("Please enter the manager's ID!")
+                    return false; 
+                } else {
+                    return true;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: "Please enter the manager's email.",
+            validate: email => {
+
+                // using this email regex to validate if it is a live email 
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (valid) {
+                    return true;
+                } else {
+                    console.log ('Please enter an email!')
+                    return false; 
+                }
+            }
         },
         {
             type: 'input',
@@ -92,6 +121,8 @@ function addEmployee() {
             type: 'input',
             name: 'github',
             message: "Please enter the employee's github username.",
+
+            // using role to determine if the user chose this specific employee type 
             when: (input) => input.role === "Engineer",
         },
 
@@ -101,6 +132,8 @@ function addEmployee() {
             type: 'input',
             name: 'school',
             message: "Please enter the intern's school",
+
+            // using role to determine if the user chose this specific employee type
             when: (input) => input.role === "Intern",
         },
         {
@@ -120,7 +153,7 @@ function addEmployee() {
         // this employee variable has two possible values 
         let employee; 
 
-        // if statement to check if the user input selected Engineer or Intern from the list options 
+        // if statement to check if the user input selected the Engineer 'role' or the Intern 'role' from the list options 
         if (role === "Engineer") {
 
             // creates new object passing all input data through the parameters
@@ -133,7 +166,7 @@ function addEmployee() {
 
         }
 
-         // pushing the new object into the empty array 
+        // pushing the new object into the empty array 
         teamArr.push(employee); 
 
         // if the user inputs 'y' then the addEmployee function will be invoked 
