@@ -1,5 +1,5 @@
 // requiring class Employee constructor function and its methods
-const Employee = require("./Engineer");
+const Employee = require("./Employee");
 
 // extend employee construction function to intern 
 class Intern extends Employee {
@@ -18,7 +18,7 @@ class Intern extends Employee {
         return this.school;
     }
 
-     // method that changes the employee role to the intern role
+    // method that changes the employee role to the intern role
     getRole () {
 
         // returns role as intern 
