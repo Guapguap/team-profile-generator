@@ -28,7 +28,7 @@ function addManager(){
                     console.log ("Please enter the manager's name!");
                     return false; 
                 }
-            }
+            } 
         },
         {
             type: 'input',
