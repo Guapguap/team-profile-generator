@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for engineer.js</title>
+    <title>Code coverage report for intern.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> engineer.js</h1>
+        <h1><a href="index.html">All files</a> intern.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -90,9 +90,10 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,7 +108,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,31 +124,33 @@
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">// requiring class Employee constructor function and its methods
 const Employee = require("./Employee");
 &nbsp;
-// the extends keyword allows use of all contructor function and methods in class Employee 
-// class Engineer constructor function has github in its parameter
-class Engineer extends Employee {
-    
-    constructor (name, id, email, github) {
+// extend employee construction function to intern 
+class Intern extends Employee {
+&nbsp;
+    constructor(name, id, email, school){
         
         // reference to the employee class 
         super (name, id, email);
 &nbsp;
-        this.github = github; 
+        this.school = school;
     }
 &nbsp;
-    // returning github from input 
-    getGithub () {
-        return this.github;
+    // method to return school from input 
+    getSchool () {
+&nbsp;
+        return this.school;
     }
 &nbsp;
-    // changes the employee role to the engineer role
+    // method that changes the employee role to the intern role
     getRole () {
-        return "Engineer";
+&nbsp;
+        // returns role as intern 
+        return "Intern";
     }
 }
 &nbsp;
 // to be exported 
-module.exports = Engineer;</pre></td></tr></table></pre>
+module.exports = Intern;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
