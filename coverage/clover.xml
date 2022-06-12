@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654900613467" clover="3.2.0">
-  <project timestamp="1654900613467" name="All files">
-    <metrics statements="8" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1" elements="13" coveredelements="5" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
+<coverage generated="1655003910212" clover="3.2.0">
+  <project timestamp="1655003910212" name="All files">
+    <metrics statements="14" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="7" elements="22" coveredelements="20" complexity="0" loc="14" ncloc="14" packages="1" files="2" classes="2"/>
     <file name="employee.js" path="C:\Users\Guap\Desktop\GitHub\Homework Folder\Week 10 Assignment\team-profile-generator\lib\employee.js">
-      <metrics statements="8" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="12" count="0" type="stmt"/>
-      <line num="17" count="0" type="stmt"/>
-      <line num="22" count="0" type="stmt"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <line num="5" count="4" type="stmt"/>
+      <line num="6" count="4" type="stmt"/>
+      <line num="7" count="4" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="32" count="2" type="stmt"/>
+    </file>
+    <file name="engineer.js" path="C:\Users\Guap\Desktop\GitHub\Homework Folder\Week 10 Assignment\team-profile-generator\lib\engineer.js">
+      <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
