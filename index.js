@@ -7,7 +7,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern'); 
 
-// link to page creation
+// generated file required
 const generateHTML = require('./src/generateHTML');
 
 // team array
@@ -25,7 +25,7 @@ function addManager(){
                 if (userInput) {
                     return true;
                 } else {
-                    console.log ("Please enter the manager's name!");
+                    console.log ("Please enter the manager's name");
                     return false; 
                 }
             } 
@@ -38,7 +38,7 @@ function addManager(){
 
                 // using isNaN to validate if the value is a number 
                 if  (isNaN(userInput)) {
-                    console.log ("Please enter the manager's ID!")
+                    console.log ("Please enter the manager's ID")
                     return false; 
                 } else {
                     return true;
@@ -56,7 +56,7 @@ function addManager(){
                 if (valid) {
                     return true;
                 } else {
-                    console.log ('Please enter an email!')
+                    console.log ('Please enter an email')
                     return false; 
                 }
             }
@@ -65,6 +65,14 @@ function addManager(){
             type: 'input',
             name: 'officeNumber',
             message: "Please enter the manager's office number",
+            validate: userInput => {
+                if  (isNaN(userInput)) {
+                    console.log ('Please enter an office number')
+                    return false; 
+                } else {
+                    return true;
+                }
+            }
         }
     ])
 
@@ -78,7 +86,8 @@ function addManager(){
         const manager = new Manager (name, id, email, officeNumber);
 
         // pushes the new object into the empty array 
-        teamArr.push(manager); 
+        teamArr.push(manager);
+        console.log(teamArr); 
     })
 };
 
@@ -88,7 +97,7 @@ function addEmployee() {
     // to separate the manager prompts from the employee prompts 
     console.log(`
     =================
-    Adding more team members
+    ---------------------------------------
     =================
     `);
 
@@ -102,17 +111,42 @@ function addEmployee() {
         {
             type: 'input',
             name: 'name',
-            message: "What's the name of the employee?", 
+            message: "What's the name of the employee?",
+            validate: userInput => {
+                if (userInput) {
+                    return true;
+                } else {
+                    console.log ("Please enter an employee's name");
+                    return false; 
+                }
+            } 
         },
         {
             type: 'input',
             name: 'id',
             message: "Please enter the employee's ID.",
+            validate: userInput => {
+                if  (isNaN(userInput)) {
+                    console.log ("Please enter the employee's ID")
+                    return false; 
+                } else {
+                    return true;
+                }
+            }
         },
         {
             type: 'input',
             name: 'email',
             message: "Please enter the employee's email.",
+            validate: email => {
+                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                if (valid) {
+                    return true;
+                } else {
+                    console.log ('Please enter an email')
+                    return false; 
+                }
+            }
         },
 
         // WHEN I select the engineer option
@@ -124,6 +158,13 @@ function addEmployee() {
 
             // using role to determine if the user chose this specific employee type 
             when: (input) => input.role === "Engineer",
+            validate: userInput => {
+                if (userInput ) {
+                    return true;
+                } else {
+                    console.log ("Please enter the employee's github username")
+                }
+            }
         },
 
         // WHEN I select the intern option
@@ -135,6 +176,13 @@ function addEmployee() {
 
             // using role to determine if the user chose this specific employee type
             when: (input) => input.role === "Intern",
+            validate: userInput => {
+                if (userInput) {
+                    return true;
+                } else {
+                    console.log ("Please enter the intern's school")
+                }
+            }
         },
         {
             type: 'confirm',
@@ -168,6 +216,7 @@ function addEmployee() {
 
         // pushing the new object into the empty array 
         teamArr.push(employee); 
+        console.log(teamArr);
 
         // if the user inputs 'y' then the addEmployee function will be invoked 
         if (confirmMember) {
@@ -176,7 +225,7 @@ function addEmployee() {
         else {
 
         // if the user inputs 'N' then it will return the teamArr  
-            return teamArr, console.log(teamArr);;
+            return teamArr;
         }
     })
 
@@ -184,3 +233,31 @@ function addEmployee() {
 
 addManager()
     .then(addEmployee)
+    .then(teamArr => {
+
+        // the argument passes the new objects in the array to enter into the template literal 
+        return generateHTML(teamArr);
+    })
+    .then(newHTML => {
+
+        // invokes the function with the argument to have the template literal dynamically written 
+        return writeFile(newHTML);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+    // function to write an HTML file using the fs.writeFile method
+function writeFile(data) {
+
+    fs.writeFile('./dist/index.html', data, err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the profile has been created 
+        } else {
+            console.log("Your team profile has been successfully created! Please check out the index.html")
+        }
+    })
+}; 
