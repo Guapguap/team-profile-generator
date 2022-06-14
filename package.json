@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "build:css": "tailwind build src/tailwind.css -o dist/style.css" 
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "inquirer": "^8.2.4"
   },
   "devDependencies": {
-    "jest": "^28.1.1"
+    "jest": "^28.1.1",
+    "tailwindcss": "^3.1.2"
   }
 }
