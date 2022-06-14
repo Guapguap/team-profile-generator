@@ -63,7 +63,7 @@ function addManager(){
         },
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'office',
             message: "Please enter the manager's office number",
             validate: userInput => {
                 if  (isNaN(userInput)) {
@@ -80,10 +80,10 @@ function addManager(){
     .then(dataManager => {
 
         // object destructuring data for manager 
-        const  { name, id, email, officeNumber } = dataManager; 
+        const  { name, id, email, office } = dataManager; 
 
         // creates new object passing all input data through the parameters
-        const manager = new Manager (name, id, email, officeNumber);
+        const manager = new Manager (name, id, email, office);
 
         // pushes the new object into the empty array 
         teamArr.push(manager);
